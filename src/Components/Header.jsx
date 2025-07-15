@@ -23,19 +23,19 @@ const Header = () => {
           <div className=" w-full lg:w-2/3">
             <ul className={`lg:flex gap-x-7 mt-2 duration-300 ease-in-out ${show== true ? "bg-[#F5F5F3]" : " mt-[-150px] lg:mt-0"}`}>
               <li>
-                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] hover:font-semibold duration-300 ease-in-out text-capitalize" href="#">Home</a>
+                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" href="#">Home</a>
               </li>
               <li>
-                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] hover:font-semibold duration-300 ease-in-out text-capitalize" href="#">Shop</a>
+                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" href="#">Shop</a>
               </li>
               <li>
-                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] hover:font-semibold duration-300 ease-in-out text-capitalize" href="#">About</a>
+                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" href="#">About</a>
               </li>
               <li>
-                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] hover:font-semibold duration-300 ease-in-out text-capitalize" href="#">Contacts</a>
+                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" href="#">Contacts</a>
               </li>
               <li>
-                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] hover:font-semibold duration-300 ease-in-out text-capitalize" href="#">Journal</a>
+                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" href="#">Journal</a>
               </li>
             </ul>
           </div>

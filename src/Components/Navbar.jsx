@@ -158,8 +158,8 @@ const Navbar = () => {
                     <span className="text-[#767676]">Subtotal:</span> $44.00
                   </h3>
                   <ul className="flex justify-between mt-2">
-                    <li className="py-3 w-[149px] bg-[#FFFFFF] font-dms text-[14px] text-[#262626] text-center hover:bg-[#262626] hover:text-[#FFFFFF] hover:font-semibold duration-300 ease-in-out border">View Cart</li>
-                    <li className="py-3 w-[149px] bg-[#FFFFFF] font-dms text-[14px] text-[#262626] text-center hover:bg-[#262626] hover:text-[#FFFFFF] hover:font-semibold duration-300 ease-in-out border">Checkout</li>
+                    <li className="py-3 w-[149px] bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">View Cart</li>
+                    <li className="py-3 w-[149px] bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">Checkout</li>
                   </ul>
                 </div>
               </div>
