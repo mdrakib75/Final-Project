@@ -12,7 +12,6 @@ import {
 } from "react-icons/fa";
 
 const Navbar = () => {
-  
   let [cateShow, setCateShow] = useState();
   let [accShow, setAccShow] = useState();
   let [cartShow, setCartShow] = useState();
@@ -23,13 +22,11 @@ const Navbar = () => {
 
   useEffect(() => {
     document.addEventListener("click", (e) => {
-
       if (cateRef.current.contains(e.target)) {
         setCateShow(!cateShow);
       } else {
         setCateShow(false);
       }
-
 
       if (accRef.current.contains(e.target)) {
         setAccShow(!accShow);
@@ -37,16 +34,13 @@ const Navbar = () => {
         setAccShow(false);
       }
 
-
-      if(cartRef.current.contains(e.target)){
-       setCartShow(!cartShow)
-      }
-      else{
+      if (cartRef.current.contains(e.target)) {
+        setCartShow(!cartShow);
+      } else {
         setCartShow(false);
       }
-
     });
-  },[cateShow, accShow, cartShow]);
+  }, [cateShow, accShow, cartShow]);
 
   return (
     <>
@@ -71,8 +65,7 @@ const Navbar = () => {
                     >
                       <div className="flex justify-between">
                         <span>Accessories</span>
-
-                        <div className="">
+                        <div className="pr-3">
                           <RiArrowRightSLine />
                         </div>
                       </div>
@@ -81,7 +74,12 @@ const Navbar = () => {
                       className="py-2 text-[rgba(255,255,255,0.7)] pl-5 hover:text-[#ffffff] hover:pl-[30px]
                   duration-300 ease-in-out font-dms font-normal text-[14px] border-b-[1px] border-[rgba(255,255,255,0.7)]"
                     >
-                      Furniture
+                      <div className="flex justify-between items-center">
+                        <span>Furniture</span>
+                        <div className="pr-3">
+                          <RiArrowRightSLine />
+                        </div>
+                      </div>
                     </li>
                     <li
                       className="py-2 text-[rgba(255,255,255,0.7)] pl-5 hover:text-[#ffffff] hover:pl-[30px]
@@ -139,31 +137,35 @@ const Navbar = () => {
                   </ul>
                 </div>
               )}
-              {cartShow &&
-              <div className="absolute left-0 top-10 w-full">
-                <div className="flex items-center justify-around bg-[#F5F5F3]">
-                  <div className="">
-                    <img src={CartImg} alt="" />
+              {cartShow && (
+                <div className="absolute left-0 top-10 w-full">
+                  <div className="flex items-center justify-around bg-[#F5F5F3]">
+                    <div className="">
+                      <img src={CartImg} alt="" />
+                    </div>
+                    <div className="">
+                      <h4>Black Smart Watch</h4>
+                      <h5>$44.00</h5>
+                    </div>
+                    <div className="">
+                      <RxCross2 />
+                    </div>
                   </div>
                   <div className="">
-                    <h4>Black Smart Watch</h4>
-                    <h5>$44.00</h5>
-                  </div>
-                  <div className="">
-                    <RxCross2 />
+                    <h3 className="mt-2">
+                      <span className="text-[#767676]">Subtotal:</span> $44.00
+                    </h3>
+                    <ul className="flex justify-between mt-2">
+                      <li className="py-3 w-[149px] bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">
+                        View Cart
+                      </li>
+                      <li className="py-3 w-[149px] bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">
+                        Checkout
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <div className="">
-                  <h3 className="mt-2">
-                    <span className="text-[#767676]">Subtotal:</span> $44.00
-                  </h3>
-                  <ul className="flex justify-between mt-2">
-                    <li className="py-3 w-[149px] bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">View Cart</li>
-                    <li className="py-3 w-[149px] bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">Checkout</li>
-                  </ul>
-                </div>
-              </div>
-                  }
+              )}
             </div>
           </div>
         </Container>
