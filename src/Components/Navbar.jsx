@@ -57,7 +57,7 @@ const Navbar = () => {
                 </h3>
               </div>
               {cateShow && (
-                <div className="bg-[#262626] py-3 absolute left-0 top-10 w-full">
+                <div className="bg-[#262626] py-3 absolute left-0 top-10 w-full z-10">
                   <ul>
                     <li
                       className="py-2 text-[rgba(255,255,255,0.7)] pl-5 hover:text-[#ffffff] hover:pl-[30px]
@@ -126,7 +126,7 @@ const Navbar = () => {
                 </div>
               </div>
               {accShow && (
-                <div className="w-[200px] absolute left-[27%] top-10">
+                <div className="w-[200px] absolute left-[27%] top-10 z-10">
                   <ul>
                     <li className="py-3 px-4 bg-[#FFFFFF] font-dms text-[14px] text-[#262626] text-center hover:bg-[#262626] hover:text-[#FFFFFF] hover:font-semibold duration-300 ease-in-out">
                       My Account
@@ -138,7 +138,7 @@ const Navbar = () => {
                 </div>
               )}
               {cartShow && (
-                <div className="absolute left-0 top-10 w-full">
+                <div className="absolute left-0 top-10 w-full z-10 bg-[#FFFFFF]">
                   <div className="flex items-center justify-around bg-[#F5F5F3]">
                     <div className="">
                       <img src={CartImg} alt="" />
@@ -152,10 +152,10 @@ const Navbar = () => {
                     </div>
                   </div>
                   <div className="">
-                    <h3 className="mt-2">
+                    <h3 className="mt-2 px-3">
                       <span className="text-[#767676]">Subtotal:</span> $44.00
                     </h3>
-                    <ul className="flex justify-between mt-2">
+                    <ul className="flex justify-between mt-2 px-2 py-4">
                       <li className="py-3 w-[149px] bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">
                         View Cart
                       </li>

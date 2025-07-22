@@ -6,7 +6,10 @@ const ContextApi = ({children}) => {
     let [info,setInfo] = useState([])
 
     let getData = () => {
-        axios.get("")
+        axios.get("https://dummyjson.com/products").then((response)=>{
+            setInfo(response.data.products);
+            
+        })
     }
 
     useEffect(()=>{
@@ -14,7 +17,7 @@ const ContextApi = ({children}) => {
     },[])
     return(
         <>
-            <ApiData.Provider value="ami">{children}</ApiData.Provider>
+            <ApiData.Provider value={info}>{children}</ApiData.Provider>
         </>
     )
 }

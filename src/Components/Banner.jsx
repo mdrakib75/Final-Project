@@ -1,5 +1,4 @@
 import Ban from "../assets/banner.png";
-import "slick-carousel/slick/slick.css";
 import Slider from "react-slick";
 import Container from "./Container";
 import { PiNumberTwoBold } from "react-icons/pi";
@@ -45,7 +44,7 @@ const Banner = () => {
     )
   };
   return (
-    <div className="border-b-2 border-[#F0F0F0] pb-3">
+    <div id="banner" className="border-b-2 border-[#F0F0F0] pb-3">
       <Slider {...settings}>
         <div className="">
           <img src={Ban} alt="" />
