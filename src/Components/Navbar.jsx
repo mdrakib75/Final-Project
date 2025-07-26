@@ -85,19 +85,34 @@ const Navbar = () => {
                       className="py-2 text-[rgba(255,255,255,0.7)] pl-5 hover:text-[#ffffff] hover:pl-[30px]
                   duration-300 ease-in-out font-dms font-normal text-[14px] border-b-[1px] border-[rgba(255,255,255,0.7)]"
                     >
-                      Electronics
+                      <div className="flex justify-between items-center">
+                        <span>Electronics</span>
+                        <div className="pr-3">
+                          <RiArrowRightSLine />
+                        </div>
+                      </div>
                     </li>
                     <li
                       className="py-2 text-[rgba(255,255,255,0.7)] pl-5 hover:text-[#ffffff] hover:pl-[30px]
                   duration-300 ease-in-out font-dms font-normal text-[14px] border-b-[1px] border-[rgba(255,255,255,0.7)]"
                     >
-                      Clothes
+                      <div className="flex justify-between items-center">
+                        <span>Clothes</span>
+                        <div className="pr-3">
+                          <RiArrowRightSLine />
+                        </div>
+                      </div>
                     </li>
                     <li
                       className="py-2 text-[rgba(255,255,255,0.7)] pl-5 hover:text-[#ffffff] hover:pl-[30px]
                   duration-300 ease-in-out font-dms font-normal text-[14px]"
                     >
-                      Bags
+                      <div className="flex justify-between items-center">
+                        <span>Bags</span>
+                        <div className="pr-3">
+                          <RiArrowRightSLine />
+                        </div>
+                      </div>
                     </li>
                   </ul>
                 </div>

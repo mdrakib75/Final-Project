@@ -5,16 +5,16 @@ import { FaCodeCompare } from "react-icons/fa6";
 import { useContext } from "react";
 import { ApiData } from "./ContextApi";
 import Slider from "react-slick";
-import { GrFormPrevious } from "react-icons/gr";
 import { FaLongArrowAltLeft, FaLongArrowAltRight  } from "react-icons/fa";
 
 
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
+  let data = useContext(ApiData);
   return (
     <div
-      className="nextButton"
+      className="h-[64px] w-[64px] bg-[rgba(151,151,151,0.53)] hover:bg-[#979797] cursor-pointer top-[115px] absolute right-[10px] justify-center flex items-center rounded-full text-white hover:text-black"
       onClick={onClick}
     >
       <FaLongArrowAltRight/>
@@ -26,7 +26,7 @@ function SamplePrevArrow(props) {
   const { className, onClick } = props;
   return (
     <div
-      className="prevButton"
+      className="h-[64px] w-[64px] bg-[rgba(151,151,151,0.53)] hover:bg-[#979797] hover:text-black cursor-pointer top-[115px] absolute z-10 left-[10px] text-white flex justify-center items-center rounded-full"
       onClick={onClick}
       >
         <FaLongArrowAltLeft/>
@@ -41,7 +41,25 @@ const Arrivals = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint:476,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint:768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        }
+      },
+    ]
   };
   return (
     <div className="">
@@ -56,7 +74,7 @@ const Arrivals = () => {
                   <div className="">
                     <img src={item.thumbnail} alt="" />
                   </div>
-                  <div className="absolute left-0 bottom-0 w-full bg-[#FFFFFF] opacity-0 group-hover:opacity-100 duration-300 ease-in-out">
+                  <div className="absolute right-0 cursor-pointer overflow-hidden h-0 group-hover:h-[130px] bottom-0 w-full bg-[#FFFFFF] opacity-0 group-hover:opacity-100 duration-300 ease-in-out ">
                     <ul className="pr-4">
                       <li className="flex items-center justify-end py-2 gap-2 text-[#767676] hover:text-[#222]">
                         <span className="">Add to Wish List</span>
@@ -84,6 +102,10 @@ const Arrivals = () => {
               </div>
             ))}
           </Slider>
+
+          <div className="pt-25">
+            
+          </div>
         </div>
       </Container>
     </div>

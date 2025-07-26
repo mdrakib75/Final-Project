@@ -12,11 +12,11 @@ const Header = () => {
 
   return (
     <>
-    <header className={`lg:py-3 ${show ? "mb-0" : "mb-8 lg:mb-0"}`}>
+    <header className={`sticky top-0 z-10 bg-[#ffffff] lg:py-3 ${show ? "mb-0" : "mb-8 lg:mb-0"}`}>
       <Container>
         <div className="lg:flex items-center">
           <div className="lg:w-1/3">
-            <div className="">
+            <div className="mt-2">
               <img src={logo} alt="" />
             </div>
           </div>
