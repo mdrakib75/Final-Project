@@ -3,8 +3,7 @@ import Container from "./Container";
 import logo from "../assets/Logo.png";
 import { FaBars } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
-
-
+import { Link} from "react-router-dom";
 
 const Header = () => {
 
@@ -23,19 +22,19 @@ const Header = () => {
           <div className=" w-full lg:w-2/3">
             <ul className={`lg:flex gap-x-7 mt-2 duration-300 ease-in-out ${show== true ? "bg-[#F5F5F3]" : " mt-[-150px] lg:mt-0"}`}>
               <li>
-                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" href="#">Home</a>
+                <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" to="/">Home</Link>
               </li>
               <li>
-                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" href="#">Shop</a>
+                <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" to="/shop">Shop</Link>
               </li>
               <li>
-                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" href="#">About</a>
+                <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize"  to="/">About</Link>
               </li>
               <li>
-                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" href="#">Contacts</a>
+                <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize"  to="/">Contacts</Link>
               </li>
               <li>
-                <a  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" href="#">Journal</a>
+                <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize"  to="/">Journal</Link>
               </li>
             </ul>
           </div>

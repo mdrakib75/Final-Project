@@ -4,15 +4,17 @@ import Navbar from '../Components/Navbar'
 import Banner from '../Components/Banner'
 import Sale from '../Components/Sale'
 import Arrivals from '../Components/Arrivals'
+import Special from '../Components/Special'
+import Footer from '../Components/Footer'
 
 const Home = () => {
   return (
     <>
-    <Header/>
-    <Navbar/>
     <Banner/>
     <Sale/>
     <Arrivals/>
+    <Special/>
+    <Footer/>
     </>
   )
 }
