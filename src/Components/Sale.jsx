@@ -5,14 +5,14 @@ import saleImg03 from "../assets/sale03.png"
 
 const Sale = () => {
   return (
-    <div className="py-43">
+    <div className="md:py-43 py-22">
         <Container>
-            <div className="flex justify-between">
-              <div className="w-[49%]">
+            <div className="flex justify-between gap-x-4">
+              <div className="md:w-[48%] ">
                 <img src={saleImg01} alt="" />
               </div>
-              <div className="w-[49%]">
-                <div className="pb-9">
+              <div className="md:w-[48%]">
+                <div className="md:pb-9 pb-3">
                   <img src={saleImg02} alt="" />
                 </div>
                 <div className="">

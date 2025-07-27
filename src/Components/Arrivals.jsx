@@ -44,7 +44,7 @@ const Arrivals = () => {
       {
         breakpoint: 476,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -91,18 +91,18 @@ const Arrivals = () => {
                 </div>
                 <div className="flex justify-between">
                   <div className="">
-                    <h3>{item.title}</h3>
-                    <p className="pt-3">{item.brand}</p>
+                    <h3 className="md:font-bold font-medium font-dms md:text-[18px] text-[16px]">{item.title}</h3>
+                    <p className="font-dms font-normal md:text-[16px] text-[12px] text-[#767676]">{item.brand}</p>
                   </div>
-                  <div className="">{item.price}</div>
+                  <div className="font-dms font-normal md:text-[16px] text-[12px] text-[#767676]">{item.price}</div>
                 </div>
               </div>
             ))}
           </Slider>
 
-          <div className="pt-25 flex justify-between">
+          <div className="md:pt-25 py-13 flex flex-wrap justify-between">
             {data.slice(13,17).map((item) => (
-              <div className="!w-[24%]">
+              <div className="md:w-[24%] w-[48%]">
                 <div className="relative group">
                   <div className="bg-[#D8D8D8]">
                     <img src={item.thumbnail} alt="" />
@@ -124,22 +124,22 @@ const Arrivals = () => {
                     </ul>
                   </div>
                   <div className="absolute top-5 left-5">
-                    <a className="bg-[#262626] px-8 py-2 text-white font-bold font-dms text-[14px]" href="#">New</a>
+                    <a className="bg-[#262626] md:px-8 px-4 md:py-2 py-[4px] text-white font-bold font-dms text-[14px]" href="#">New</a>
                   </div>
                 </div>
                 <div className="flex justify-between pt-2">
                   <div className="">
-                    <h3>{item.title}</h3>
-                    <p>{item.brand}</p>
+                    <h3 className="md:font-bold font-medium font-dms md:text-[18px] text-[16px]">{item.title}</h3>
+                    <p className="font-dms font-normal md:text-[16px] text-[12px] text-[#767676]">{item.brand}</p>
                   </div>
-                  <div className="">{item.price}</div>
+                  <div className="font-dms font-normal md:text-[16px] text-[12px] text-[#767676]">{item.price}</div>
                 </div>
               </div>
             ))}
           </div>
         </div>
         <div className="">
-          <div className="py-33">
+          <div className="md:pt-32 md:pb-32 pb-16 pt-16">
             <img src={AdsImg} alt="" />
           </div>
         </div>

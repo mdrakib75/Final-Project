@@ -28,13 +28,13 @@ const Header = () => {
                 <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize" to="/shop">Shop</Link>
               </li>
               <li>
-                <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize"  to="/">About</Link>
+                <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize"  to="*">About</Link>
               </li>
               <li>
-                <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize"  to="/">Contacts</Link>
+                <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize"  to="*">Contacts</Link>
               </li>
               <li>
-                <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize"  to="/">Journal</Link>
+                <Link  className="text-[14px] text-[#767676] font-dms font-normal hover:text-[#262626] duration-300 ease-in-out text-capitalize"  to="*">Journal</Link>
               </li>
             </ul>
           </div>

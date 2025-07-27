@@ -46,8 +46,8 @@ const Navbar = () => {
     <>
       <nav className="bg-[#F5F5F3] py-2 mt-3 lg:mt-0">
         <Container>
-          <div className="lg:flex items-center">
-            <div className="lg:w-1/4  relative">
+          <div className="md:flex items-center">
+            <div className="md:w-1/4  relative">
               <div className="flex items-center gap-2" ref={cateRef}>
                 <div className="">
                   <HiMiniBars2 />
@@ -57,7 +57,7 @@ const Navbar = () => {
                 </h3>
               </div>
               {cateShow && (
-                <div className="bg-[#262626] py-3 absolute left-0 top-10 w-full z-10">
+                <div className="bg-[#262626] py-3 absolute overflow-hidden left-0 top-10 md:w-full w-[200px] z-10">
                   <ul>
                     <li
                       className="py-2 text-[rgba(255,255,255,0.7)] pl-5 hover:text-[#ffffff] hover:pl-[30px]
