@@ -9,7 +9,7 @@ import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
-  let data = useContext(ApiData);
+  let {info} = useContext(ApiData);
   return (
     <div
       className="h-[64px] w-[64px] bg-[rgba(151,151,151,0.53)] hover:bg-[#979797] cursor-pointer top-[115px] absolute right-[10px] justify-center flex items-center rounded-full text-white hover:text-black"
@@ -33,7 +33,7 @@ function SamplePrevArrow(props) {
 }
 
 const Arrivals = () => {
-  let data = useContext(ApiData);
+  let {info} = useContext(ApiData);
   let newSlider = {
     infinite: true,
     slidesToShow: 4,
@@ -66,7 +66,7 @@ const Arrivals = () => {
 
         <div className="">
           <Slider {...newSlider}>
-            {data.map((item) => (
+            {info.map((item) => (
               <div className="!w-[95%]">
                 <div className="relative group">
                   <div className="bg-[#D8D8D8]">
@@ -101,7 +101,7 @@ const Arrivals = () => {
           </Slider>
 
           <div className="md:pt-25 py-13 flex flex-wrap justify-between">
-            {data.slice(13,17).map((item) => (
+            {info.slice(13,17).map((item) => (
               <div className="md:w-[24%] w-[48%]">
                 <div className="relative group">
                   <div className="bg-[#D8D8D8]">

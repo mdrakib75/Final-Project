@@ -5,13 +5,13 @@ import { FaCodeCompare } from "react-icons/fa6";
 import Container from "./Container";
 
 const Special = () => {
-  let spec = useContext(ApiData);
+  let {info} = useContext(ApiData);
   return (
     <div>
       <Container>
         <h2 className="font-bold font-dms md:text-[40px] text-[20px]">Special Offers</h2>
         <div className="md:py-25 py-13 flex flex-wrap justify-between">
-          {spec.slice(10, 14).map((item) => (
+          {info.slice(10, 14).map((item) => (
             <div className="md:w-[24%] w-[48%]">
               <div className="relative group">
                 <div className="bg-[#D8D8D8]">
