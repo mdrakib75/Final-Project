@@ -17,7 +17,7 @@ const Page = ({ allData }) => {
     <>
       <div className="pt-13 gap-y-15 flex flex-wrap justify-between">
         {allData.map((item) => (
-          <div className="md:w-[31%] w-[48%]">
+          <div key={item.id} className="md:w-[31%] w-[48%]">
             <div className="relative group">
               <div className="bg-[#D8D8D8]">
                 <img src={item.thumbnail} alt="" />
