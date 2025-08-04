@@ -1,6 +1,4 @@
 const Pagination = ({PageNumber,paginate,currentPage,info}) => {
-  console.log(PageNumber);
-  
   return (
     <>
       <nav aria-label="Page navigation example">

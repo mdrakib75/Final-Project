@@ -9,12 +9,14 @@ import Home from "./pages/Home";
 import Layout from "./Components/Layout";
 import Shop from "./pages/Shop";
 import Error from "./pages/Error";
+import ProductDetails from "./pages/ProductDetails";
 let rout = createBrowserRouter(
   createRoutesFromChildren(
     <>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
+        <Route path="/product/:id" element={<ProductDetails />}></Route>
       </Route>
       <Route path="*" element={<Error />}></Route>
     </>
