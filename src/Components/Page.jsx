@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import { FaCodeCompare, FaHeart } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
 import { ApiData } from "./ContextApi";
-import { Link, Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Page = ({ allData }) => {
+const Page = ({ allData,cateFilter}) => {
   let { loading } = useContext(ApiData);
+  console.log(cateFilter);
+  
   if (loading) {
     return (
       <>
@@ -19,9 +21,12 @@ const Page = ({ allData }) => {
         {allData.map((item) => (
           <div key={item.id} className="md:w-[31%] w-[48%]">
             <div className="relative group">
+              <Link to={`/product/${item.id}`}>
               <div className="bg-[#D8D8D8]">
                 <img src={item.thumbnail} alt="" />
               </div>
+              </Link>
+              
               <div className="absolute right-0 bottom-0 w-full bg-[#FFFFFF] overflow-hidden opacity-0 group-hover:opacity-100 duration-300 ease-in-out h-0 group-hover:h-[130px]">
                 <ul>
                   <li className="flex items-center justify-end py-2 gap-2 text-[#767676] hover:text-[#222]">

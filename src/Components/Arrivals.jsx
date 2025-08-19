@@ -67,7 +67,7 @@ const Arrivals = () => {
         <div className="">
           <Slider {...newSlider}>
             {info.map((item) => (
-              <div className="!w-[95%]">
+              <div key={item.id} className="!w-[95%]">
                 <div className="relative group">
                   <div className="bg-[#D8D8D8]">
                     <img src={item.thumbnail} alt="" />
@@ -102,7 +102,7 @@ const Arrivals = () => {
 
           <div className="md:pt-25 py-13 flex flex-wrap justify-between">
             {info.slice(13,17).map((item) => (
-              <div className="md:w-[24%] w-[48%]">
+              <div key={item.id} className="md:w-[24%] w-[48%]">
                 <div className="relative group">
                   <div className="bg-[#D8D8D8]">
                     <img src={item.thumbnail} alt="" />

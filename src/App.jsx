@@ -15,7 +15,7 @@ let rout = createBrowserRouter(
     <>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/shop" element={<Shop />}></Route>
+        <Route path="/shop" element={<Shop/>}></Route>
         <Route path="/product/:id" element={<ProductDetails />}></Route>
       </Route>
       <Route path="*" element={<Error />}></Route>

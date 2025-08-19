@@ -12,7 +12,7 @@ const Special = () => {
         <h2 className="font-bold font-dms md:text-[40px] text-[20px]">Special Offers</h2>
         <div className="md:py-25 py-13 flex flex-wrap justify-between">
           {info.slice(10, 14).map((item) => (
-            <div className="md:w-[24%] w-[48%]">
+            <div key={item.id} className="md:w-[24%] w-[48%]">
               <div className="relative group">
                 <div className="bg-[#D8D8D8]">
                   <img src={item.thumbnail} alt="" />
