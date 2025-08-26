@@ -11,14 +11,15 @@ import { VscThreeBars } from "react-icons/vsc";
 const Shop = () => {
   let { info } = useContext(ApiData);
 
-  let [ShopCate, SetShopCate] = useState(false);
-  let [ShopColor, SetShopColor] = useState(false);
-  let [ShopBrand, SetShopBrand] = useState(false);
-  let [ShopPrice, SetShopPrice] = useState(false);
+  let [ShopCate, setShopCate] = useState(false);
+  let [ShopColor, setShopColor] = useState(false);
+  let [ShopBrand, setShopBrand] = useState(false);
+  let [ShopPrice, setShopPrice] = useState(false);
   let [PerPage, setPerPage] = useState(6);
   let [currentPage, setCurrentPage] = useState(1);
   let [Category, setCategory] = useState([]);
-  let [cateFilter, setCateFilter] = useState([])
+  let [cateFilter, setCateFilter] = useState([]);
+  let [active, setActive] = useState("")
 
   let lastPage = PerPage * currentPage;
   let firstPage = lastPage - PerPage;
@@ -32,26 +33,29 @@ const Shop = () => {
     setCurrentPage(index + 1);
   };
 
-  let next = () =>{
-    if(currentPage < PageNumber.length){
-      setCurrentPage((state) => state + 1)
+  let next = () => {
+    if (currentPage < PageNumber.length) {
+      setCurrentPage((state) => state + 1);
     }
-    
-  }
+  };
 
-  let prev = () =>{
-    if(currentPage > 1){
-      setCurrentPage((state) => state - 1)
+  let prev = () => {
+    if (currentPage > 1) {
+      setCurrentPage((state) => state - 1);
     }
-  }
+  };
 
-  useEffect(()=>{
-    setCategory([...new Set(info.map((item) => item.category))])
-  },[info])
+  useEffect(() => {
+    setCategory([...new Set(info.map((item) => item.category))]);
+  }, [info]);
 
-  let handleCategory = (cateItem) =>{
-    let categoryFilter = info.filter((item) => item.category == cateItem)
-    setCateFilter(categoryFilter)
+  let handleCategory = (cateItem) => {
+    let categoryFilter = info.filter((item) => item.category == cateItem);
+    setCateFilter(categoryFilter);
+  };
+
+  let handleList = () =>{
+   setActive("active");
   }
   
   return (
@@ -87,7 +91,7 @@ const Shop = () => {
           <div className="w-1/3">
             <div className="py-5">
               <h2
-                onClick={() => SetShopCate(!ShopCate)}
+                onClick={() => setShopCate(!ShopCate)}
                 className="flex items-center justify-between pr-7 font-bold font-dms text-[20px]"
               >
                 Shop by Category{" "}
@@ -95,13 +99,16 @@ const Shop = () => {
               </h2>
               {ShopCate && (
                 <ul className="pr-7">
-                  {Category.map((item)=>(
-                    <Link>
-                        <li key={item} onClick={()=>handleCategory(item)} className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7 capitalize">
+                  {Category.map((item) => (
+                    <Link key={item}>
+                      <li
+                        key={item}
+                        onClick={() => handleCategory(item)}
+                        className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7 capitalize"
+                      >
                         {item}
                       </li>
                     </Link>
-                      
                   ))}
                 </ul>
               )}
@@ -109,7 +116,7 @@ const Shop = () => {
 
             <div className="py-5">
               <h2
-                onClick={() => SetShopColor(!ShopColor)}
+                onClick={() => setShopColor(!ShopColor)}
                 className="flex items-center justify-between pr-7 font-bold font-dms text-[20px]"
               >
                 Shop by Color{" "}
@@ -137,7 +144,7 @@ const Shop = () => {
             </div>
             <div className="py-5">
               <h2
-                onClick={() => SetShopBrand(!ShopBrand)}
+                onClick={() => setShopBrand(!ShopBrand)}
                 className="flex items-center justify-between pr-7 font-bold font-dms text-[20px]"
               >
                 Shop by Brand{" "}
@@ -165,7 +172,7 @@ const Shop = () => {
             </div>
             <div className="py-5">
               <h2
-                onClick={() => SetShopPrice(!ShopPrice)}
+                onClick={() => setShopPrice(!ShopPrice)}
                 className="flex items-center justify-between pr-7 font-bold font-dms text-[20px]"
               >
                 Shop by Price{" "}
@@ -195,26 +202,30 @@ const Shop = () => {
           <div className="w-2/3">
             <div className=""></div>
             <div className="flex pt-5">
-              <div className=" hover:text-white justify-center flex items-center hover:bg-[#262626] h-7 w-7 hover:text border-1 border-[#F0F0F0]">
-                <FaWindows />
-              </div>
-              <div className=" ml-5 hover:text-white justify-center flex items-center hover:bg-[#262626] h-7 w-7 hover:text border-1 border-[#F0F0F0]">
-                <VscThreeBars />
+              <div className="flex">
+                <div className=" hover:text-white justify-center flex items-center hover:bg-[#262626] h-7 w-7 hover:text border-1 border-[#F0F0F0]">
+                  <FaWindows />
+                </div>
+                <div onClick={handleList} className=" ml-5 hover:text-white justify-center flex items-center hover:bg-[#262626] h-7 w-7 hover:text border-1 border-[#F0F0F0]">
+                  <VscThreeBars />
+                </div>
               </div>
             </div>
-            <Page allData={allData} cateFilter = {cateFilter} />
-            <div className="flex items-center justify-between py-25">
-              <Pagination
-                PageNumber={PageNumber}
-                paginate={paginate}
-                currentPage={currentPage}
-                info={info}
-                next={next}
-                prev={prev}
-              />
-              <h4 className="font-dms font-normal text-[14px] text-[#767676]">
-                Products from {currentPage} to {PerPage} of {info.length}
-              </h4>
+            <div className="">
+              <Page allData={allData} cateFilter={cateFilter} active={active} />
+              <div className="flex items-center justify-between py-25">
+                <Pagination
+                  PageNumber={PageNumber}
+                  paginate={paginate}
+                  currentPage={currentPage}
+                  info={info}
+                  next={next}
+                  prev={prev}
+                />
+                <h4 className="font-dms font-normal text-[14px] text-[#767676]">
+                  Products from {currentPage} to {PerPage} of {info.length}
+                </h4>
+              </div>
             </div>
           </div>
         </div>
