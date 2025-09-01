@@ -19,7 +19,10 @@ const Shop = () => {
   let [currentPage, setCurrentPage] = useState(1);
   let [Category, setCategory] = useState([]);
   let [cateFilter, setCateFilter] = useState([]);
-  let [active, setActive] = useState("")
+  let [active, setActive] = useState("");
+  let [low, setLow] = useState();
+  let [high, setHigh] = useState();
+  let [brand, setBrand] = useState();
 
   let lastPage = PerPage * currentPage;
   let firstPage = lastPage - PerPage;
@@ -38,7 +41,6 @@ const Shop = () => {
       setCurrentPage((state) => state + 1);
     }
   };
-
   let prev = () => {
     if (currentPage > 1) {
       setCurrentPage((state) => state - 1);
@@ -47,6 +49,7 @@ const Shop = () => {
 
   useEffect(() => {
     setCategory([...new Set(info.map((item) => item.category))]);
+    setBrand([...new Set(info.map((item) => item.brand))]);
   }, [info]);
 
   let handleCategory = (cateItem) => {
@@ -54,10 +57,29 @@ const Shop = () => {
     setCateFilter(categoryFilter);
   };
 
-  let handleList = () =>{
-   setActive("active");
-  }
-  
+  let handleList = () => {
+    setActive("active");
+  };
+
+  let handleChange = (e) => {
+    setPerPage(e.target.value);
+  };
+
+  let handlePrice = (value) => {
+    setLow(value.low);
+    setHigh(value.high);
+    let PriceShow = info.filter(
+      (item) => item.price >= value.low && item.price <= value.high
+    );
+    setCateFilter(PriceShow);
+  };
+
+
+   let handleBrand = (bItem) => {
+    let brandFilter = info.filter((item) => item.brand == bItem)
+    setCateFilter(brandFilter)
+   }
+
   return (
     <>
       <Container>
@@ -152,21 +174,11 @@ const Shop = () => {
               </h2>
               {ShopBrand && (
                 <ul className="pr-7">
-                  <li className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7">
-                    Brand 1
-                  </li>
-                  <li className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7">
-                    Brand 2
-                  </li>
-                  <li className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7">
-                    Brand 3
-                  </li>
-                  <li className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7">
-                    Brand 4
-                  </li>
-                  <li className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7">
-                    Brand 5
-                  </li>
+                  {brand.map((item) => (
+                    <li key={item} onClick={() => handleBrand(item)} className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7">
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               )}
             </div>
@@ -180,20 +192,23 @@ const Shop = () => {
               </h2>
               {ShopPrice && (
                 <ul className="pr-7">
-                  <li className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7">
+                  <li
+                    onClick={() => handlePrice({ low: 0, high: 9 })}
+                    className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7"
+                  >
                     $0.00 - $9.99
                   </li>
-                  <li className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7">
+                  <li
+                    onClick={() => handlePrice({ low: 10, high: 19 })}
+                    className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7"
+                  >
                     $10.00 - $19.99
                   </li>
-                  <li className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7">
+                  <li
+                    onClick={() => handlePrice({ low: 20, high: 29 })}
+                    className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7"
+                  >
                     $20.00 - $29.99
-                  </li>
-                  <li className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7">
-                    $30.00 - $39.99
-                  </li>
-                  <li className="border-b-1 border-[#D8D8D8] pb-5 text-[16px] font-normal font-dms text-[#767676] pt-7">
-                    $40.00 - $69.99
                   </li>
                 </ul>
               )}
@@ -201,14 +216,66 @@ const Shop = () => {
           </div>
           <div className="w-2/3">
             <div className=""></div>
-            <div className="flex pt-5">
+            <div className="flex justify-between pt-5">
               <div className="flex">
-                <div className=" hover:text-white justify-center flex items-center hover:bg-[#262626] h-7 w-7 hover:text border-1 border-[#F0F0F0]">
+                <div
+                  onClick={() => setActive("")}
+                  className={`${
+                    active == "active"
+                      ? " hover:text-white justify-center flex items-center hover:bg-[#262626] h-7 w-7 hover:text border-1 border-[#F0F0F0]"
+                      : " hover:text-white justify-center bg-[#262626] text-white flex items-center hover:bg-[#262626] h-7 w-7 hover:text border-1 border-[#F0F0F0]"
+                  }`}
+                >
                   <FaWindows />
                 </div>
-                <div onClick={handleList} className=" ml-5 hover:text-white justify-center flex items-center hover:bg-[#262626] h-7 w-7 hover:text border-1 border-[#F0F0F0]">
+                <div
+                  onClick={handleList}
+                  className={` ${
+                    active == "active"
+                      ? "ml-5 text-white bg-[#262626] hover:text-white justify-center flex items-center hover:bg-[#262626] h-7 w-7 hover:text border-1 border-[#F0F0F0]"
+                      : "ml-5 hover:text-white justify-center flex items-center hover:bg-[#262626] h-7 w-7 hover:text border-1 border-[#F0F0F0]"
+                  } `}
+                >
                   <VscThreeBars />
                 </div>
+              </div>
+              <div className="flex justify-between">
+                <form className="flex mr-10 max-w-sm mx-auto">
+                  <label
+                    htmlFor="countries"
+                    className="block pr-[14px] mt-2 text-sm font-dms font-normal text-[#767676] dark:text-white"
+                  >
+                    Sort by:
+                  </label>
+                  <select
+                    id="countries"
+                    className="bg-gray-50 w-[239px] border border-gray-300  outline-none text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  >
+                    <option value="country">Choose a country</option>
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                  </select>
+                </form>
+                <form className="flex max-w-sm mx-auto">
+                  <label
+                    htmlFor="countries"
+                    className="block pr-[14px] mt-2 text-sm font-dms font-normal text-[#767676] dark:text-white"
+                  >
+                    Show:
+                  </label>
+                  <select
+                    id="countries"
+                    onChange={handleChange}
+                    className=" outline-none bg-gray-50 w-[139px] border border-gray-300 text-gray-900 text-sm rounded-lg block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  >
+                    <option value="6">6</option>
+                    <option value="9">9</option>
+                    <option value="12">12</option>
+                    <option value="15">15</option>
+                  </select>
+                </form>
               </div>
             </div>
             <div className="">
@@ -221,6 +288,7 @@ const Shop = () => {
                   info={info}
                   next={next}
                   prev={prev}
+                  cateFilter={cateFilter}
                 />
                 <h4 className="font-dms font-normal text-[14px] text-[#767676]">
                   Products from {currentPage} to {PerPage} of {info.length}
