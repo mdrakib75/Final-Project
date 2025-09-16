@@ -10,6 +10,7 @@ import {
   FaChevronDown,
   FaShoppingCart,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   let [cateShow, setCateShow] = useState();
@@ -171,9 +172,13 @@ const Navbar = () => {
                       <span className="text-[#767676]">Subtotal:</span> $44.00
                     </h3>
                     <ul className="flex justify-between mt-2 px-2 py-4">
-                      <li className="py-3 w-[149px] bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">
+
+                      <Link to="/cart">
+                       <li className="py-3 w-[149px] bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">
                         View Cart
                       </li>
+                      </Link>
+                     
                       <li className="py-3 w-[149px] bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">
                         Checkout
                       </li>
