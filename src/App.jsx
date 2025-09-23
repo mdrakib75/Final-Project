@@ -10,7 +10,7 @@ import Layout from "./Components/Layout";
 import Shop from "./pages/Shop";
 import Error from "./pages/Error";
 import ProductDetails from "./pages/ProductDetails";
-import  {Cart}  from "./pages/Cart";
+import  Cart from "./pages/Cart";
 let rout = createBrowserRouter(
   createRoutesFromChildren(
     <>

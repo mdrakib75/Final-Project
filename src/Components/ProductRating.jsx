@@ -8,11 +8,12 @@ export const ProductRating = ({rating}) => {
     const emptyRating = 5 - fullRating - (halfRating ? 1 : 0)
     
   return (
+    <>
     <div className='flex'>
 
          {
            [...Array(fullRating)].map((item)=> (
-                 <FaStar className='text-[#FFD881]' />
+                 <FaStar key={item} className='text-[#FFD881]' />
             ))
         }
 
@@ -30,5 +31,7 @@ export const ProductRating = ({rating}) => {
       
 
     </div>
+    </>
+    
   )
 }

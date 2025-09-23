@@ -41,7 +41,7 @@ const ProductDetails = () => {
          <div className="flex flex-wrap justify-between gap-7">
            {
             singleData?.images?.map((img)=> (
-              <img key={img} className='w-[40%]' src={img} alt="" />
+              <img key={img} className='w-[40%] bg-[#D8D8D8]' src={img} alt="" />
             ))
            }
          </div>
