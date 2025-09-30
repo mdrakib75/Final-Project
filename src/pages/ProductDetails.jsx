@@ -30,7 +30,7 @@ const ProductDetails = () => {
   },[])
 
   const handleAdd = () => {
-    console.log("Ok");
+    // console.log("Ok");
     dispatch(cartTotal(singleData))
   }
   

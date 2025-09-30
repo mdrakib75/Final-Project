@@ -17,16 +17,29 @@ export const cartSlice = createSlice({
         else{
           state.cartItems.push({...action.payload, cartQun: 1})
         } 
-        localStorage.setItem("cartDetails", JSON.stringify({...action.payload}))
+        localStorage.setItem("cartDetails", JSON.stringify(state.cartItems))
     //   state.value += 1
     },
     cartQuantity:(state,action)=>{
       console.log(state);
       console.log(action.payload);
-    }
+      if(action.payload.type == "increment"){
+        state.cartItems[action.payload.id].cartQun += 1
+      }
+      else{
+        state.cartItems[action.payload.id].cartQun -= 1
+      }
+      localStorage.setItem("cartDetails", JSON.stringify(state.cartItems))
+    },
+    cartRemove: (state,action)=>{
+      console.log(state);
+      console.log(action.payload);
+     state.cartItems = state.cartItems.filter((item,index) => index != action.payload)
+      localStorage.setItem("cartDetails", JSON.stringify(state.cartItems))
+    },
   },
 })
 
-export const { cartTotal , cartQuantity} = cartSlice.actions
+export const { cartTotal , cartQuantity, cartRemove} = cartSlice.actions
 
 export default cartSlice.reducer

@@ -9,7 +9,7 @@ import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 
 function SampleNextArrow(props) {
   const { className, onClick } = props;
-  let {info} = useContext(ApiData);
+  const {info} = useContext(ApiData);
   return (
     <div
       className="h-[64px] w-[64px] bg-[rgba(151,151,151,0.53)] hover:bg-[#979797] cursor-pointer top-[115px] absolute right-[10px] justify-center flex items-center rounded-full text-white hover:text-black"
