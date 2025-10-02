@@ -179,7 +179,7 @@ const Navbar = () => {
                       </li>
                       </Link>
                      
-                      <li className="py-3 w-[149px] bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">
+                      <li className="py-3 w-[149px] cursor-pointer bg-[#262626] font-dms text-[14px] text-[#FFFFFF] text-center hover:bg-[#FFFFFF] hover:text-[#262626] hover:font-semibold duration-300 ease-in-out border">
                         Checkout
                       </li>
                     </ul>

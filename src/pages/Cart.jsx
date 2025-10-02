@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Container from "../Components/Container";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
 import productImg from "../assets/productImg.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import { RxCross2 } from "react-icons/rx";
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [coupon, setCoupon] = useState("");
   const [discount, setDiscount] = useState("");
   const data = useSelector((state) => state.cartDetails.cartItems);
@@ -38,10 +39,21 @@ const Cart = () => {
   };
   const Total = totalPrice - discount;
 
+  const handleCheckout = () =>{
+    console.log("Ok");
+    navigate("/checkout",{
+      state: {
+        SubTotalPrice: Total,
+      }
+    })
+   }
+
+
   const handleRemove = (index) => {
     console.log("ok", index);
     dispatch(cartRemove(index));
   };
+
   return (
     <div>
       <Container>
@@ -174,11 +186,9 @@ const Cart = () => {
                 </div>
               </div>
               <div className="text-end pt-10">
-                <Link to="/checkout">
-                 <p className="bg-primary cursor-pointer font-bold font-dms text-[14px] px-7 py-4 inline-block text-white">
+                 <p onClick={handleCheckout} className="bg-primary cursor-pointer font-bold font-dms text-[14px] px-7 py-4 inline-block text-white">
                   Proceed to Checkout
                 </p>
-                </Link>
                
               </div>
             </div>
